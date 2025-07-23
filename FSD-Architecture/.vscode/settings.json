@@ -1,0 +1,48 @@
+{
+  // ✅ Mettez à jour les imports automatiquement lors du renommage/déplacement
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+
+  // ✅ Formattage automatique
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // ✅ Organise automatiquement les imports au save
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "always",
+    "source.fixAll": "always",
+    "source.fixAll.eslint": "always"
+  },
+
+  // ✅ ESLint
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+
+  // ✅ Tailwind CSS IntelliSense
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.experimental.classRegex": [
+    "cn\\(([^)]*)\\)",
+    "cva\\(([^)]*)\\)"
+  ],
+
+  // ✅ Typescript
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.format.enable": false,
+
+  // ✅ React
+  "reactSnippets.settings.preferFunctionalComponents": true,
+
+  // ✅ Files
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.exclude": {
+    "**/.next": true,
+    "**/node_modules": true,
+    "**/.turbo": true,
+    "**/dist": true
+  }
+}
