@@ -62,7 +62,7 @@ Ideal for small to medium projects or teams not requiring full DDD/OOP overhead.
 
 1. Clone this repo:
 ```bash
-git clone https://github.com/your-username/nextjs-architectures.git
+git clone https://github.com/Noe-Epi2024/Next.js-Template.git
 ```
 
 2. Pick your desired template folder:
@@ -76,8 +76,8 @@ cd Layered-Architecture
 
 3. Install dependencies and start the dev server:
 ```bash
-pnp install
-pnp run dev
+npm install
+npm run dev
 ```
 
 ---
