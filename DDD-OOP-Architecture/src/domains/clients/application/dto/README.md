@@ -1,4 +1,4 @@
-# 📦 dto/ (clients domain)
+# 📦 application/dto/ (clients domain)
 
 This folder contains **Zod schemas** and **DTO types** for the `clients` domain.
 
@@ -9,8 +9,8 @@ DTOs are used to validate and type data exchanged between layers: controllers �
 ## 📁 Example
 
 ```
-domains/clients/dto/
-└── CreateClientDto.ts
+domains/clients/application/dto/
+└── createClient.dto.ts
 ```
 
 ---
@@ -27,10 +27,10 @@ domains/clients/dto/
 ```ts
 import { z } from 'zod';
 
-export const CreateClientSchema = z.object({
+export const CreateClientSchemaDto = z.object({
   name: z.string().min(2),
   email: z.string().email(),
 });
 
-export type CreateClientDto = z.infer<typeof CreateClientSchema>;
+export type CreateClientDto = z.infer<typeof CreateClientSchemaDto>;
 ```

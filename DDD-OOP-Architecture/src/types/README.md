@@ -47,6 +47,7 @@ export type Client = {
   id: string;
   name: string;
   email: string;
+  status: ClientStatus
   createdAt: Date;
 };
 ```

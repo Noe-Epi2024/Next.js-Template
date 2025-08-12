@@ -1,32 +1,17 @@
 # 🔌 ports/ (clients domain)
 
-This folder defines **interfaces (ports)** used by the application layer.  
-They represent contracts for infrastructure or service dependencies (e.g., repository, mailer).
+This folder defines the **entry and exit points** for the `clients` domain.  
+Ports specify **how the domain interacts with the outside world**, such as HTTP handlers, CLI commands, or messaging subscribers.
 
----
-
-## 📁 Example
-
-```
-domains/clients/ports/
-└── ClientRepository.ts
-```
+Ports only define **contracts and request/response handling** — the actual logic is delegated to the application layer.
 
 ---
 
 ## ✅ Best practices
 
-- Keep one interface per concern
-- Let application layer depend only on interfaces
-- Infrastructure must implement them
+- Keep ports **thin** — only parse/validate requests and call use cases
+- Do **not** implement business logic here
+- Keep ports **framework-agnostic** when possible
+- Follow clear naming conventions (e.g., `*.handler.ts` for HTTP)
 
 ---
-
-## 🧠 Example
-
-```ts
-export interface ClientRepository {
-  save(client: Client): Promise<Client>;
-  findById(id: string): Promise<Client | null>;
-}
-```
