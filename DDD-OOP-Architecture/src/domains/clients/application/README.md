@@ -1,40 +1,19 @@
-# 🎯 application/ (clients domain)
+# 🧠 application/ (clients domain)
 
-This folder contains **application services** (use cases) for the `clients` domain.  
-These services coordinate the execution of business rules using domain entities and infrastructure via interfaces.
+This folder defines the **application layer** of the `clients` domain.  
+It contains **use cases** and **application services** that orchestrate domain models, repositories, and other services to fulfill specific business processes.
 
-They act as the entry point for the domain logic, receiving parsed DTOs and calling domain methods or repositories.
-
----
-
-## 📁 Example
-
-```
-domains/clients/application/
-├── CreateClientService.ts
-├── UpdateClientService.ts
-└── DeleteClientService.ts
-```
+The application layer coordinates the **flow of data** between the domain layer and external layers (e.g., API controllers, UI, infrastructure),  
+but it does **not** contain UI logic or direct infrastructure code.
 
 ---
 
 ## ✅ Best practices
 
-- Services are **classes** (OOP)
-- Use constructor injection for `ClientRepository` (via interface)
-- Keep orchestration logic here — not in controllers
+- Implement **use cases** that represent application-level operations (e.g., `createClient`, `updateClientEmail`).
+- Keep business rules in the **domain layer**, not here.
+- Use **dependency injection** to work with repository interfaces and services.
+- Avoid direct calls to databases, APIs, or frameworks — delegate to the infrastructure layer.
+- Keep methods simple, **orchestrating** actions rather than performing complex calculations.
 
 ---
-
-## 🧠 Example
-
-```ts
-export class CreateClientService {
-  constructor(private readonly repo: ClientRepository) {}
-
-  async execute(dto: CreateClientDto) {
-    const client = new Client(dto.name, dto.email);
-    return this.repo.save(client);
-  }
-}
-```
